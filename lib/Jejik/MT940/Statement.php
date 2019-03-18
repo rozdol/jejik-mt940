@@ -27,6 +27,11 @@ class Statement implements StatementInterface
     private $number;
 
     /**
+     * @var string Statement Currency
+     */
+    private $currency;
+
+    /**
      * @var AccountInterface Account
      */
     private $account;
@@ -69,6 +74,28 @@ class Statement implements StatementInterface
     public function setNumber($number)
     {
         $this->number = $number;
+        return $this;
+    }
+
+    /**
+     * Getter for currency
+     *
+     * @return string
+     */
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    /**
+     * Setter for currency
+     *
+     * @param string $currency
+     * @return $this
+     */
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
         return $this;
     }
 

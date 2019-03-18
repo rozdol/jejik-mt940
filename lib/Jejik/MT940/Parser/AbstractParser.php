@@ -200,6 +200,7 @@ abstract class AbstractParser
 
         $account->setNumber($accountNumber);
         $number = $this->statementNumber($text);
+        $currency = $this->accountCurrency($text);
         $statement = $this->reader->createStatement($account, $number);
 
         if (!($statement instanceof StatementInterface)) {
@@ -207,6 +208,7 @@ abstract class AbstractParser
         }
 
         $statement->setAccount($account)
+                  ->setCurrency($currency)
                   ->setNumber($this->statementNumber($text))
                   ->setOpeningBalance($this->openingBalance($text))
                   ->setClosingBalance($this->closingBalance($text));
